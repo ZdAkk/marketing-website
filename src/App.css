@@ -232,11 +232,6 @@ Main page hero background image blend into the header
   gap: 2em;
 }
 
-.header-nav a:hover,
-.header-nav a:focus {
-  color: #ffe600;
-}
-
 .header-nav .nav-item {
   flex-shrink: 0;
 }
