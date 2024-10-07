@@ -1,0 +1,591 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: #404040;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ##########################
+    Typography
+########################## */
+
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+strong {
+  font-weight: 900;
+}
+
+.accent-text {
+  color: #ffe600;
+}
+
+a {
+  font-size: 0.88rem;
+  font-weight: bold;
+
+  text-decoration: none;
+  color: white;
+}
+
+.text-highlighted {
+  color: #ffe600;
+}
+
+.active-link {
+  border-bottom: 2px solid #ffe600;
+  font-weight: bold;
+}
+
+.email-link {
+  color: black;
+  font-size: 1.125rem;
+  text-decoration: underline;
+}
+
+.email-link:hover,
+.email-link:focus {
+  opacity: 0.8;
+}
+
+.btn {
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.5em 1.5em;
+}
+
+.btn:hover,
+.btn:focus {
+  opacity: 0.8;
+}
+
+.btn-accent {
+  background-color: #ffe600;
+  color: black;
+  justify-self: start;
+}
+
+.page-title {
+  margin-bottom: 0;
+  width: fit-content;
+  line-height: 1;
+  margin: 2em auto 0;
+
+  font-size: 3em;
+  font-weight: 800;
+  color: black;
+
+  position: relative;
+}
+
+.page-title::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  left: 15px;
+  bottom: 0;
+
+  height: 0.5em;
+  width: 100%;
+  background-color: #ffe600;
+}
+
+.subtitle {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  text-align: center;
+
+  max-width: 500px;
+
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+
+  margin-bottom: 2em;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: black;
+
+  margin-top: 3em;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  margin-top: 10px;
+  background-color: #ffe600;
+}
+
+@media (min-width: 1100px) {
+  .subtitle {
+    margin: 1em auto 6em;
+    max-width: 700px;
+  }
+
+  .about-me .section-title {
+    line-height: 1;
+    margin-top: 0;
+  }
+}
+
+/* ##########################
+    General Layout
+########################## */
+
+.main-grid {
+  display: grid;
+  grid-template-columns: minmax(1em, 1fr) minmax(300px, 600px) minmax(1em, 1fr);
+  column-gap: 2em;
+}
+
+@media (min-width: 650px) {
+  .main-grid {
+    grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(130px, 320px)) minmax(
+        1em,
+        1fr
+      );
+  }
+}
+
+/* ##########################
+    Header Componenet
+########################## */
+
+.header {
+  height: 73px;
+
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+/* ##################
+Main page hero background image blend into the header
+################## */
+
+.header-main {
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+}
+
+.header-content {
+  grid-column: 2 / -2;
+  display: flex;
+  gap: 2em;
+  align-items: center;
+}
+
+.header .nav-logo-link {
+  height: 73px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #ffe600;
+}
+
+.nav-logo {
+  margin: auto 0 1px;
+}
+
+.header-nav {
+  position: initial;
+  display: flex;
+  gap: 2em;
+}
+
+.header-nav .nav-item {
+  flex-shrink: 0;
+}
+
+@media (max-width: 550px) {
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(100%);
+
+    background-color: black;
+
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .header-nav-open {
+    transform: translateX(0%);
+    transition: transform 250ms ease-in;
+  }
+
+  .header-nav .nav-item {
+    font-size: 3em;
+  }
+
+  .nav-button-open {
+    border: 0;
+    background: none;
+    color: #ffe600;
+    font-size: 2em;
+    font-weight: bold;
+    padding: 0;
+    margin: 0 0 0 auto;
+  }
+
+  .nav-button-close {
+    background: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    border: 0;
+
+    font-size: 4em;
+    font-weight: bold;
+    color: #ffe600;
+
+    padding: 0.5em;
+    margin: 0;
+  }
+}
+
+/* ##########################
+    Footer Componenet
+########################## */
+
+.footer {
+  background-color: #ebebeb;
+  padding: 4em 0;
+  text-align: center;
+
+  grid-template-areas:
+    ". social ."
+    ". main .";
+}
+
+.footer-main {
+  grid-area: main;
+}
+
+.footer-logo,
+.footer-text,
+.footer-fineprint {
+  opacity: 0.5;
+}
+
+.footer-fineprint {
+  font-size: 0.75em;
+  margin-top: 5em;
+}
+
+.social-links {
+  grid-area: social;
+  list-style: none;
+
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+
+  padding-bottom: 1em;
+}
+
+.social-link {
+  color: black;
+}
+
+.social-link:hover,
+.social-link:focus {
+  color: #ffe600;
+}
+
+@media (min-width: 600px) {
+  .footer {
+    grid-template-areas: ". main main social .";
+  }
+
+  .footer-main {
+    text-align: start;
+  }
+
+  .social-links {
+    justify-content: end;
+  }
+}
+
+/* ##########################
+    Home Page
+########################## */
+
+.hero {
+  background-image: url("./assets/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+
+  padding: 8em 0 4em;
+
+  color: white;
+}
+
+@media (min-width: 1300px) {
+  .hero {
+    background-position: center right;
+  }
+}
+
+.hero > * {
+  grid-column: 2 /-2;
+  margin-right: 20%;
+}
+
+.hero-title {
+  line-height: 1.3;
+  margin-bottom: 0;
+
+  font-size: 1.5rem;
+}
+
+.card-container {
+  padding: 4em 0;
+  text-align: center;
+}
+
+.card {
+  grid-column: 2 / -2;
+  margin-top: 1.25em;
+}
+
+.card-title {
+  width: fit-content;
+  margin: 0 auto 0;
+}
+
+.card-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 10px auto 0;
+  background-color: #ffe600;
+}
+
+@media (min-width: 650px) {
+  .hero {
+    padding: 10em 0 4em;
+  }
+
+  .hero > * {
+    grid-column: 2 / span 2;
+  }
+}
+
+@media (min-width: 750px) {
+  .card:first-child {
+    grid-column: 2 / span 1;
+  }
+
+  .card {
+    grid-column: span 1;
+  }
+}
+
+/* ##########################
+    About Me Page
+########################## */
+
+.about-me {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.about-me > * {
+  grid-column: 2 / -2;
+}
+
+.main-image {
+  justify-self: center;
+
+  box-shadow: 5px 5px 0 black, 10px 10px 0 #ffe600;
+}
+
+@media (min-width: 1100px) {
+  .about-me {
+    column-gap: 5em;
+    grid-template-areas:
+      ". title title title. "
+      ". subtitle subtitle subtitle. "
+      ". image text text ."
+      ". . text text .";
+  }
+  .about-me .page-title {
+    grid-area: title;
+  }
+  .about-me .subtitle {
+    grid-area: subtitle;
+  }
+  .about-me .main-image {
+    grid-area: image;
+  }
+  .about-me .main-text {
+    grid-area: text;
+  }
+}
+
+/* ##########################
+    About Me Page
+########################## */
+
+.contact {
+  margin-bottom: 3em;
+}
+
+.contact > * {
+  grid-column: 2 / -2;
+}
+
+.firstName-input,
+.email-input,
+.message-input {
+  width: 100%;
+  border: 2px solid #707070;
+  padding: 0.5em;
+
+  font-family: inherit;
+}
+
+.firstName-input,
+.email-input {
+  display: block;
+  height: 3em;
+  margin-top: 1em;
+}
+
+.message-input {
+  margin-top: 1em;
+  resize: none;
+}
+
+.firstName-label,
+.email-label,
+.message-label {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.form-button {
+  display: block;
+  color: black;
+  font-weight: 800;
+  font-size: 1rem;
+
+  padding: 0.7rem 3rem;
+  border: none;
+  margin-left: auto;
+
+  background-color: #ffe600;
+
+  cursor: pointer;
+}
+
+.form-button:hover {
+  color: #404040;
+}
+
+@media (min-width: 1100px) {
+  .contact {
+    grid-template-areas:
+      ". title title title ."
+      ". subtitle subtitle subtitle ."
+      ". image form form ."
+      ". section form form .";
+    column-gap: 4em;
+  }
+
+  .contact .page-title {
+    grid-area: title;
+  }
+  .contact .subtitle {
+    grid-area: subtitle;
+  }
+  .contact .main-image {
+    grid-area: image;
+  }
+  .contact .main-text {
+    grid-area: section;
+  }
+  .contact .contact-form {
+    grid-area: form;
+  }
+
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "firstname email"
+      "message message"
+      ". button";
+    column-gap: 2em;
+  }
+
+  .contact-form .firstName-label {
+    grid-area: firstname;
+  }
+
+  .contact-form .email-label {
+    grid-area: email;
+  }
+
+  .contact-form .message-label {
+    grid-area: message;
+  }
+
+  .contact-form .form-button {
+    grid-area: button;
+    height: fit-content;
+  }
+}
